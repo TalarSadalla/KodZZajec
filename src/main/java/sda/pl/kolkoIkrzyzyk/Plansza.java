@@ -35,4 +35,5 @@ public class Plansza {
 		}
 		return stringBuilder.toString();
 	}
+
 }
