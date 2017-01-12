@@ -38,4 +38,11 @@ public class KolkoIKrzyzykInterface {
 		scanner.nextLine();
 	}
 
+	public void Winner(String name) {
+
+		System.out.println("Brawo " + name + " . Wygrałaś/Wygrałeś");
+		Scanner scanner = new Scanner(System.in);
+		scanner.nextLine();
+	}
+
 }

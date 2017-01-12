@@ -3,6 +3,14 @@ package sda.pl.kolkoIkrzyzyk;
 public class Plansza {
 	private String[] pola;
 
+	public String[] getPola() {
+		return pola;
+	}
+
+	public void setPola(String[] pola) {
+		this.pola = pola;
+	}
+
 	public Plansza() {
 		pola = new String[9];
 		for (int i = 1; i <= pola.length; i++) {

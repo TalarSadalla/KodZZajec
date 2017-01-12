@@ -7,12 +7,12 @@ public class KolkoIKrzyzyk {
 
 	public static void main(String[] args) {
 
-		KolkoIKrzyzykInterface kolkoIkrzyzk = new KolkoIKrzyzykInterface();
-		Integer WyborTrybu = kolkoIkrzyzk.menu();
+		KolkoIKrzyzykInterface kolkoIkrzyzkInterfejs = new KolkoIKrzyzykInterface();
+		Integer WyborTrybu = kolkoIkrzyzkInterfejs.menu();
 		Plansza plansza = new Plansza();
 		int ruch = 0;
-		String gracz1 = kolkoIkrzyzk.podajImie();
-		String gracz2 = kolkoIkrzyzk.podajImie();
+		String gracz1 = kolkoIkrzyzkInterfejs.podajImie();
+		String gracz2 = kolkoIkrzyzkInterfejs.podajImie();
 		Map<String, String> mapaGraczy = new HashMap<>();
 		mapaGraczy.put(gracz1, "X");
 		mapaGraczy.put(gracz2, "O");
@@ -22,7 +22,7 @@ public class KolkoIKrzyzyk {
 		switch (WyborTrybu) {
 		case 1:
 			for (int i = 0; i < 9; i++) {
-				kolkoIkrzyzk.pokazPlansze(plansza);
+				kolkoIkrzyzkInterfejs.pokazPlansze(plansza);
 				String aktualnyGracz = null;
 				String wstawianyZnak = null;
 				if (i % 2 == 0) {
@@ -34,21 +34,25 @@ public class KolkoIKrzyzyk {
 
 				do {
 
-					int pozycja = kolkoIkrzyzk.podajPole(aktualnyGracz);
+					int pozycja = kolkoIkrzyzkInterfejs.podajPole(aktualnyGracz);
 					czyWstawiono = plansza.wstawZnak(wstawianyZnak, pozycja);
 					if (!czyWstawiono) {
-						kolkoIkrzyzk.podanoNiepoprawnePole();
+						kolkoIkrzyzkInterfejs.podanoNiepoprawnePole();
 
 					}
 				} while (!czyWstawiono);
 
-				kolkoIkrzyzk.pokazPlansze(plansza);
+				if (KolkoIKrzyzykUtil.isWin(plansza)) {
+					kolkoIkrzyzkInterfejs.Winner(aktualnyGracz);
+					kolkoIkrzyzkInterfejs.pokazPlansze(plansza);
+					break;
+				}
 
 			}
 			System.out.println("Koniec gry!");
 			break;
 
-		case 0:
+		case 2:
 
 			break;
 		default:
