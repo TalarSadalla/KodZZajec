@@ -28,13 +28,21 @@ public class KolkoIKrzyzykInterface {
 		return pozycja;
 	}
 
-	public void RysowaniePlanszy() {
+	public void pokazPlansze(Plansza plansza) {
+		System.out.println(plansza.toString());
+	}
 
-		System.out.println(" | | ");
-		System.out.println("-----");
-		System.out.println(" | | ");
-		System.out.println("-----");
-		System.out.println(" | | ");
+	public void podanoNiepoprawnePole() {
+		System.out.println("Podano niepoprawne pole, spróbuj jeszcze raz.");
+		Scanner scanner = new Scanner(System.in);
+		scanner.nextLine();
+	}
+
+	public void Winner(String name) {
+
+		System.out.println("Brawo " + name + " . Wygrałaś/Wygrałeś");
+		Scanner scanner = new Scanner(System.in);
+		scanner.nextLine();
 	}
 
 }
