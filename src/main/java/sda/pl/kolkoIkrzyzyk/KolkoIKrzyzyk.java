@@ -19,36 +19,33 @@ public class KolkoIKrzyzyk {
 
 		boolean czyWstawiono;
 
-		for (int i = 0; i < 9; i++) {
-			kolkoIkrzyzk.pokazPlansze(plansza);
-			String aktualnyGracz = null;
-			String wstawianyZnak = null;
-			if (i % 2 == 0) {
-				aktualnyGracz = gracz1;
-			} else {
-				aktualnyGracz = gracz2;
-			}
-			wstawianyZnak = mapaGraczy.get(aktualnyGracz);
-
-			do {
-
-				int pozycja = kolkoIkrzyzk.podajPole(aktualnyGracz);
-				czyWstawiono = plansza.wstawZnak(wstawianyZnak, pozycja);
-				if (!czyWstawiono) {
-					kolkoIkrzyzk.podanoNiepoprawnePole();
-
-				}
-			} while (!czyWstawiono);
-
-			kolkoIkrzyzk.pokazPlansze(plansza);
-
-		}
-		System.out.println("Koniec gry!");
-
 		switch (WyborTrybu) {
 		case 1:
-			// kolkoIkrzyzk.RysowaniePlanszy();
+			for (int i = 0; i < 9; i++) {
+				kolkoIkrzyzk.pokazPlansze(plansza);
+				String aktualnyGracz = null;
+				String wstawianyZnak = null;
+				if (i % 2 == 0) {
+					aktualnyGracz = gracz1;
+				} else {
+					aktualnyGracz = gracz2;
+				}
+				wstawianyZnak = mapaGraczy.get(aktualnyGracz);
 
+				do {
+
+					int pozycja = kolkoIkrzyzk.podajPole(aktualnyGracz);
+					czyWstawiono = plansza.wstawZnak(wstawianyZnak, pozycja);
+					if (!czyWstawiono) {
+						kolkoIkrzyzk.podanoNiepoprawnePole();
+
+					}
+				} while (!czyWstawiono);
+
+				kolkoIkrzyzk.pokazPlansze(plansza);
+
+			}
+			System.out.println("Koniec gry!");
 			break;
 
 		case 0:
